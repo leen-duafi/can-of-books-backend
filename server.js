@@ -23,6 +23,10 @@ function getKey(header, callback) {
   });
 }
 
+app.get('/', (request, response) => {
+  response.send('Hello World 🥳');
+});
+
 
 app.get('/test', (request, response) => {
 
