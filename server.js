@@ -7,7 +7,8 @@ const jwt = require('jsonwebtoken');
 const jwksClient = require('jwks-rsa');
 const JWKSURI = process.env.JWKSURI;
 const mongoose = require("mongoose");
-const { getbooks, addBook, deletBook } = require('./controllers/book');
+const { getbooks, addBook, deletBook, updateBook } = require('./controllers/book');
+const { update } = require('./models/book.models');
 const app = express();
 
 // const MONGO_DB_URL = process.env.MONGO_DB_URL;
@@ -65,8 +66,9 @@ app.listen(PORT, () => console.log(`listening on ${PORT}`));
 
 //...............................lab 13....................................//
 app.post('/new', addBook);
-//...............................lab 14....................................//
 app.post('/delet/:book_id', deletBook);
+//...............................lab 14....................................//
+app.put('book/:book_id', updateBook)
 //...............................lab12.............................//
 // app.get('/books', (request, response) => {
 //   response.send('Lab 12 was done😌🎉🎊');
