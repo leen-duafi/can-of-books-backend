@@ -6,7 +6,7 @@ const getbooks=(req,res)=>{
         if (error){
             res.send(error.message)
         }
-        consolel.log(books);
+        console.log(books);
         res.send(books);
         
     });
