@@ -18,7 +18,7 @@ const userSchema= new mongoose.Schema({
 
 const user=mongoose.model('user',userSchema);
 
-
+function SeedBooksCollection() {
 
 const Heba= new user(
     {
@@ -71,7 +71,12 @@ Leen.save();
 console.log('Heba:', Heba);
 
 console.log('Leen:', Leen);
+  }
 
-
+  SeedBooksCollection();
 
 module.exports=user;
+
+
+
+
