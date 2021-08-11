@@ -38,10 +38,30 @@ const deletBook = async (req, res) => {
     });
 
 }
+const updateBook = async (req, res) => {
+    let bookId = req.params.book_id;
+    const { title, description, author } = req.body;
+    userModels.findByIdAndUpdate(
+        { _id: bookId },
+        {
+            title: title,
+            description: description,
+            author: author
+        },
+        (error, data) => {
+            res.json(data)
+        },
+
+        { new: true }
+
+    )
+
+}
 
 module.exports = {
     getbooks,
     addBook,
-    deletBook
+    deletBook,
+    updateBook
 }
 
