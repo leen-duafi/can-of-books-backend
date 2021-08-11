@@ -10,8 +10,8 @@ const mongoose = require("mongoose");
 const getbooks=require('./controllers/book');
 const app = express();
 
-const MONGO_DB_URL = process.env.MONGO_DB_URL;
-mongoose.connect(`${MONGO_DB_URL}/books`, { useNewUrlParser: true, useUnifiedTopology: true });
+// const MONGO_DB_URL = process.env.MONGO_DB_URL;
+mongoose.connect(process.env.MONGO_DB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 app.use(cors());
 
 const PORT = process.env.PORT || 3001;
@@ -68,8 +68,8 @@ app.listen(PORT, () => console.log(`listening on ${PORT}`));
 
 //...............................lab12.............................//
 
-app.get('/books', (request, response) => {
-  response.send('Lab 12 was done😌🎉🎊');
-});
+// app.get('/books', (request, response) => {
+//   response.send('Lab 12 was done😌🎉🎊');
+// });
 
 app.get('/books',getbooks);
